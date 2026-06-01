@@ -1,0 +1,534 @@
+/* ==========================================================================
+   SISTEMA DE DESIGN: JAPANDI PREMIUM (ESTILO APRESENTAÇÃO ARQUITETÔNICA)
+   ========================================================================== */
+
+/* Importação de Fontes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Lato:wght@300;400;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /* Paleta Japandi do projeto ML Gestor de Projetos */
+    --brand-blue: #0058A3;      /* Azul Royal corporativo primário */
+    --brand-mustard: #F7C846;   /* Amarelo mostarda de realce/destaque */
+    --brand-white: #F5F5F7;     /* Cinza claro corporativo para o fundo geral */
+    --card-bg: #FFFFFF;         /* Branco puro para os cards */
+    --charcoal: #333333;        /* Grafite escuro para textos */
+    --text-muted: #6B7280;      /* Cinza intermediário para metadados e textos secundários */
+    --border-color: #E0E0E0;    /* Borda fina e precisa */
+
+    /* Tipografia Japandi / ML Smart */
+    --font-title: 'Montserrat', sans-serif;
+    --font-text: 'Lato', sans-serif;
+
+    /* Transição suave e linear de alta performance */
+    --transition-smart: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Reset Geral e Suavização de Renderização */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background-color: var(--brand-white);
+    color: var(--charcoal);
+    font-family: var(--font-text);
+    overflow-x: hidden;
+    line-height: 1.7;
+}
+
+/* ==========================================================================
+   SLIDES / CARDS DE EXPOSIÇÃO (EXHIBITION CARDS)
+   ========================================================================== */
+
+.exhibition-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px; /* Japandi/ML Smart sharp edge standard */
+    padding: 3.5rem 3rem;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    transition: transform var(--transition-smart), box-shadow var(--transition-smart);
+}
+
+.exhibition-card:hover {
+    box-shadow: 0 12px 35px rgba(0, 88, 163, 0.06);
+}
+
+/* Divisores Técnicos */
+.smart-divider {
+    width: 50px;
+    height: 2px;
+    background-color: var(--brand-blue);
+    margin: 1.5rem 0;
+}
+
+.smart-divider-mustard {
+    width: 50px;
+    height: 2px;
+    background-color: var(--brand-mustard);
+    margin: 1.5rem 0;
+}
+
+/* ==========================================================================
+   SLIDE 1: HERO VIEWPORT (IMAGEM FULL-BLEED E TEXTO OVERLAY)
+   ========================================================================== */
+
+.hero-slide {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 520px;
+    padding: 4rem 3rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.hero-slide::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.8) 100%);
+    z-index: 1;
+}
+
+.hero-slide-content {
+    position: relative;
+    z-index: 2;
+    max-width: 650px;
+}
+
+.hero-main-title {
+    font-family: var(--font-title);
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.15;
+    color: #FFFFFF;
+    letter-spacing: -0.04em;
+}
+
+@media (max-width: 768px) {
+    .hero-slide {
+        min-height: 450px;
+        padding: 3rem 1.5rem;
+    }
+    .hero-main-title {
+        font-size: 2.25rem;
+    }
+}
+
+.hero-sub-title {
+    font-family: var(--font-title);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--brand-mustard);
+}
+
+.exhibition-tag {
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #FFFFFF;
+    padding: 0.3rem 0.9rem;
+    font-family: var(--font-title);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: inline-block;
+    border-radius: 2px;
+}
+
+/* ==========================================================================
+   SLIDE 2: SOBRE E MÉTRICAS
+   ========================================================================== */
+
+.museum-title {
+    font-family: var(--font-title);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--charcoal);
+    letter-spacing: -0.03em;
+}
+
+.metric-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1.25rem;
+}
+
+.metric-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.metric-number {
+    font-family: var(--font-title);
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--brand-blue);
+    line-height: 1;
+    min-width: 110px;
+}
+
+.metric-label {
+    font-family: var(--font-text);
+    font-size: 0.9rem;
+    color: var(--charcoal);
+    line-height: 1.5;
+}
+
+.about-image-frame {
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 10px;
+    background-color: var(--card-bg);
+}
+
+.about-image-frame img {
+    border-radius: 2px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ==========================================================================
+   SLIDE 3: LINHA DO TEMPO / MARCOS HISTÓRICOS (MILESTONES GRID)
+   ========================================================================== */
+
+.milestone-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 1.25rem;
+    transition: transform var(--transition-smart), box-shadow var(--transition-smart), border-color var(--transition-smart);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.milestone-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 88, 163, 0.08);
+    border-color: var(--brand-blue);
+}
+
+.milestone-image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 2px;
+    border: 1px solid var(--border-color);
+}
+
+.milestone-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-smart);
+}
+
+.milestone-card:hover .milestone-image-wrapper img {
+    transform: scale(1.05);
+}
+
+.milestone-badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background-color: var(--brand-blue);
+    color: #FFFFFF;
+    font-family: var(--font-title);
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.milestone-title {
+    font-family: var(--font-title);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    line-height: 1.35;
+    margin-top: 0.25rem;
+}
+
+.milestone-text {
+    font-family: var(--font-text);
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    text-align: justify;
+}
+
+/* ==========================================================================
+   SLIDE 4: GALERIA ASSIMÉTRICA TÉCNICA
+   ========================================================================== */
+
+.gallery-grid-custom {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+    .gallery-grid-custom {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .gallery-grid-custom {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.gallery-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 12px;
+    cursor: pointer;
+    transition: transform var(--transition-smart), box-shadow var(--transition-smart), border-color var(--transition-smart);
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 1024px) {
+    .gallery-card-large {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+    .gallery-card-large .gallery-image-wrapper {
+        aspect-ratio: auto;
+        flex-grow: 1;
+        min-height: 320px;
+    }
+}
+
+.gallery-image-wrapper {
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 4 / 3;
+    background-color: var(--brand-white);
+    border-radius: 2px;
+    border: 1px solid var(--border-color);
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-smart);
+}
+
+.gallery-info {
+    padding: 1.25rem 0.5rem 0.5rem;
+}
+
+.gallery-title {
+    font-family: var(--font-title);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    line-height: 1.35;
+}
+
+.gallery-category {
+    font-family: var(--font-title);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--brand-blue);
+    margin-top: 0.35rem;
+    font-weight: 700;
+}
+
+.gallery-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    border-color: var(--brand-blue);
+}
+
+.gallery-card:hover img {
+    transform: scale(1.05);
+}
+
+/* ==========================================================================
+   SLIDE 5: LOCALIZAÇÃO E REDES
+   ========================================================================== */
+
+.map-outer-container {
+    border: 1px solid var(--border-color);
+    padding: 8px;
+    background-color: var(--card-bg);
+    border-radius: 4px;
+}
+
+.instagram-outer-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.instagram-img-container {
+    border-radius: 2px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+/* ==========================================================================
+   LIGHTBOX GALERIA (PREMIUM EXHIBITION LIGHTBOX)
+   ========================================================================== */
+
+.lightbox-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(245, 245, 247, 0.85); /* Fundo corporativo desfocado */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 100;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity var(--transition-smart);
+}
+
+.lightbox-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.lightbox-content-wrapper {
+    max-width: 85%;
+    max-height: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lightbox-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 16px 16px 28px 16px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lightbox-img-element {
+    max-width: 100%;
+    max-height: 60vh;
+    object-fit: contain;
+    border-radius: 2px;
+}
+
+.lightbox-caption-text {
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--charcoal);
+    margin-top: 1.25rem;
+    text-align: center;
+}
+
+.lightbox-close-button {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--charcoal);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 110;
+    transition: transform var(--transition-smart), color var(--transition-smart);
+}
+
+.lightbox-close-button:hover {
+    transform: scale(1.1);
+    color: var(--brand-blue);
+}
+
+.lightbox-navigation {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--card-bg);
+    color: var(--charcoal);
+    border: 1px solid var(--border-color);
+    width: 48px;
+    height: 48px;
+    border-radius: 2px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-smart);
+    z-index: 105;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.lightbox-navigation:hover {
+    border-color: var(--brand-blue);
+    color: #FFFFFF;
+    background: var(--brand-blue);
+}
+
+.lightbox-previous-button {
+    left: 24px;
+}
+
+.lightbox-next-button {
+    right: 24px;
+}
+
+/* ==========================================================================
+   RODAPÉ
+   ========================================================================== */
+
+.museum-footer-tagline {
+    font-family: var(--font-title);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--brand-blue);
+}
+
+@media print {
+    body {
+        background-color: #ffffff;
+    }
+    .exhibition-card {
+        box-shadow: none !important;
+        background-color: #ffffff !important;
+        page-break-after: always;
+        padding: 0 !important;
+    }
+}

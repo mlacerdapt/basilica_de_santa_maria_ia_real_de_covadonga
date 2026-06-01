@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basílica de Covadonga - Miniatura 3D Exclusiva</title>
+    
+    <!-- Meta tags SEO -->
+    <meta name="description" content="Explore a réplica em miniatura 3D da maravilhosa Basílica de Santa Maria la Real de Covadonga. Conheça sua arquitetura, história e processo de fabricação.">
+    <meta name="keywords" content="Basílica de Covadonga, miniatura 3D, colecionismo, arquitetura neorromânica, impressão 3D, Astúrias">
+    <meta name="author" content="Marcelo Lacerda">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandBlue: '#0058A3',
+                        brandMustard: '#F7C846',
+                        brandWhite: '#F5F5F7',
+                        cardBg: '#ffffff',
+                        charcoal: '#333333',
+                        textMuted: '#6B7280',
+                        borderColor: '#E0E0E0',
+                    },
+                    fontFamily: {
+                        title: ['Montserrat', 'sans-serif'],
+                        sans: ['Lato', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Arquivo de Estilos Vanilla CSS para a Exposição Japandi Premium -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-brandWhite min-h-screen py-10 md:py-20 px-4 md:px-8 flex flex-col items-center">
+
+    <!-- ==========================================================================
+         OBJETO DE CONFIGURAÇÃO (FÁCIL EDIÇÃO)
+         ========================================================================== -->
+    <script>
+        // EDITAR AQUI: Altere estes valores para replicar este site para qualquer outro monumento ou projeto no futuro!
+        const MONUMENT_CONFIG = {
+            // Slide 1: Hero / Capa
+            hero: {
+                title: "Basílica de Santa Maria la Real de Covadonga",
+                subtitle: "Edição Especial de Colecionador",
+                category: "Escultura & Arquitetura 3D",
+                serialNumber: "Peça Nº 001",
+                locationText: "Covadonga, Astúrias, Espanha",
+                bgImage: "images/basilica_real.png"
+            },
+            
+            // Slide 2: Fatos Relevantes & Sobre (Metrics)
+            about: {
+                title: "Sobre a Obra",
+                description: "A magnífica Basílica ergue-se majestosamente sobre a colina de Cueto, integrada de forma única à paisagem montanhosa asturiana. Esta réplica física reproduz com fidelidade matemática suas proporções neorromânicas, celebrando o patrimônio histórico e o avanço tecnológico.",
+                image: "images/basilica_3d_render.png",
+                metrics: [
+                    { number: "1901", label: "Ano de consagração e inauguração do templo original após décadas de construção." },
+                    { number: "Rosa", label: "Tom característico do calcário das pedreiras de Covadonga, simulado via filamento mineral." },
+                    { number: "1:750", label: "Escala aproximada de precisão da miniatura desenvolvida para colecionadores." }
+                ]
+            },
+
+            // Slide 3: Marcos Históricos & Evolução (Milestones Grid)
+            milestones: [
+                {
+                    num: "01",
+                    title: "A Origem (722)",
+                    text: "O vale de Covadonga testemunhou a lendária Batalha de Covadonga liderada por D. Pelágio. O vale tornou-se berço de Astúrias e da Reconquista.",
+                    image: "images/basilica_real.png"
+                },
+                {
+                    num: "02",
+                    title: "O Incêndio (1777)",
+                    text: "Um incêndio catastrófico destruiu o antigo templo de madeira situado na Santa Cueva. Isso inspirou a idealização de um santuário de pedra eterno.",
+                    image: "images/basilica_3d_render.png"
+                },
+                {
+                    num: "03",
+                    title: "O Desenho (1877)",
+                    text: "Roberto Frassinelli projetou o majestoso monumento em estilo Neorromânico Puro, perfeitamente integrado à rocha calcária e à natureza local.",
+                    image: "images/basilica_print_process.png"
+                },
+                {
+                    num: "04",
+                    title: "A Miniatura (2026)",
+                    text: "A partir de técnicas avançadas de fatiamento tridimensional, a basílica física foi materializada com acabamento refinado para exposição.",
+                    image: "images/basilica_miniature.png"
+                }
+            ],
+
+            // Slide 4: Galeria Técnica & Processo 3D
+            gallery: [
+                {
+                    url: "images/basilica_miniature.png",
+                    caption: "Réplica finalizada sobre base expositora de madeira",
+                    tag: "Peça Física",
+                    spansLarge: true // Faz com que o card ocupe 2x2 no grid no desktop (asymmetric layout)
+                },
+                {
+                    url: "images/basilica_real.png",
+                    caption: "O monumento real nas montanhas de Astúrias",
+                    tag: "Monumento Real",
+                    spansLarge: false
+                },
+                {
+                    url: "images/basilica_3d_render.png",
+                    caption: "Render 3D: Modelagem digital e volumetria",
+                    tag: "Modelo 3D",
+                    spansLarge: false
+                },
+                {
+                    url: "images/basilica_print_process.png",
+                    caption: "Processo de fabricação: Deposição de filamento",
+                    tag: "Impressão 3D",
+                    spansLarge: false
+                }
+            ],
+
+            // Slide 5: Localização & Registro Social
+            mapsIframeUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2898.8153093223063!2d-5.028711423403264!3d43.3087363711209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd3617be3fffffff%3A0x67db2371997d515a!2sBas%C3%ADlica%20de%20Santa%20Mar%C3%ADa%20la%20Real%20de%20Covadonga!5e0!3m2!1spt-BR!2spt!4v1717270000000!5m2!1spt-BR!2spt",
+            instagramPost: {
+                authorHandle: "@mlacerdapt",
+                authorAvatar: "https://api.dicebear.com/7.x/identicon/svg?seed=mlacerdapt",
+                likesCount: "Curtido por @aislan_art e outras 184 pessoas",
+                captionText: "Depois de semanas modelando cada detalhe dos vitrais e torres neorromânicas, a Basílica de Covadonga finalmente ganhou forma física! O calcário rosa impresso em filamento especial de pedra. Apaixonado pelo resultado. 🏰✨",
+                tags: "#3DPrinting #Covadonga #Architecture #Miniature",
+                date: "15 DE JUNHO DE 2026"
+            }
+        };
+    </script>
+
+    <!-- CONTAINER CENTRAL (ESTILO EXPOSIÇÃO / APRESENTAÇÃO ARQUITETÔNICA) -->
+    <main class="w-full max-w-4xl flex flex-col gap-12 relative">
+
+        <!-- ==========================================================================
+             1. HERO SLIDE (CAPA FULL-BLEED)
+             ========================================================================== -->
+        <header id="js-hero-slide" class="hero-slide w-full">
+            <div class="hero-slide-content">
+                <div class="mb-4 flex items-center gap-3">
+                    <span id="js-hero-badge" class="exhibition-tag">Carregando...</span>
+                    <span id="js-hero-serial" class="text-xs font-title font-bold text-brandMustard tracking-widest uppercase">000/000</span>
+                </div>
+                <h1 id="js-hero-title" class="hero-main-title my-2">
+                    <!-- Título dinâmico -->
+                </h1>
+                <h2 id="js-hero-subtitle" class="hero-sub-title mb-6">
+                    <!-- Subtítulo dinâmico -->
+                </h2>
+                <div class="smart-divider-mustard"></div>
+                <p id="js-hero-location" class="font-title text-xs tracking-widest uppercase text-white/95 mt-4">
+                    <!-- Localização -->
+                </p>
+            </div>
+        </header>
+
+
+        <!-- ==========================================================================
+             2. SLIDE SOBRE & FATOS (METRICS)
+             ========================================================================== -->
+        <section id="about-section" class="exhibition-card w-full">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                <div>
+                    <h2 id="js-about-title" class="museum-title">Sobre a Obra</h2>
+                    <div class="smart-divider"></div>
+                    <p id="js-about-text" class="text-charcoal text-sm leading-relaxed mb-8">
+                        <!-- Texto sobre a obra -->
+                    </p>
+                    
+                    <!-- Container das Métricas -->
+                    <div id="js-metrics-container" class="flex flex-col">
+                        <!-- Gerado dinamicamente via JS -->
+                    </div>
+                </div>
+                
+                <div class="about-image-frame aspect-[4/3] overflow-hidden">
+                    <img id="js-about-image" src="" alt="Representação Digital">
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==========================================================================
+             3. SLIDE MARCOS HISTÓRICOS (TIMELINE / MILESTONES)
+             ========================================================================== -->
+        <section id="milestones-section" class="exhibition-card w-full">
+            <div>
+                <h2 class="museum-title">Marcos Históricos & Evolução</h2>
+                <div class="smart-divider"></div>
+                
+                <!-- Grade 4 colunas simétricas -->
+                <div id="js-milestones-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
+                    <!-- Marcos históricos gerados via JS -->
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==========================================================================
+             4. SLIDE GALERIA TÉCNICA E PROCESSO 3D
+             ========================================================================== -->
+        <section id="gallery-section" class="exhibition-card w-full">
+            <div>
+                <h2 class="museum-title">Galeria Técnica & Processo 3D</h2>
+                <div class="smart-divider"></div>
+                
+                <!-- Grid Assimétrico -->
+                <div id="js-gallery-grid" class="gallery-grid-custom mt-6">
+                    <!-- Os cards da galeria serão gerados dinamicamente -->
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==========================================================================
+             5. SLIDE LOCALIZAÇÃO E REDES SOCIAIS
+             ========================================================================== -->
+        <section id="location-social-section" class="exhibition-card w-full">
+            <div>
+                <h2 class="museum-title">Localização & Registro</h2>
+                <div class="smart-divider"></div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mt-6">
+                    
+                    <!-- Mapa Embutido -->
+                    <div class="md:col-span-3 flex flex-col justify-between">
+                        <div class="map-outer-container relative w-full h-80 overflow-hidden">
+                            <iframe 
+                                id="js-map-iframe"
+                                src="" 
+                                width="100%" 
+                                height="100%" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                        <p class="font-sans italic text-xs text-center text-textMuted mt-4">
+                            Coordenadas geográficas do monumento original em Astúrias, Espanha
+                        </p>
+                    </div>
+
+                    <!-- Lateral: Instagram Post Simulado -->
+                    <div class="md:col-span-2 flex flex-col">
+                        <h3 class="font-title font-bold text-xs text-brandBlue uppercase tracking-widest mb-3">
+                            📍 Origem do Projeto
+                        </h3>
+                        
+                        <!-- Card Instagram Simulado Japandi -->
+                        <div class="instagram-outer-card p-4 flex flex-col gap-3">
+                            <div class="flex items-center gap-3">
+                                <img id="js-ig-avatar" src="" alt="Avatar" class="w-8 h-8 rounded-full border border-borderColor">
+                                <div class="flex flex-col">
+                                    <span id="js-ig-handle" class="font-title font-bold text-xs text-charcoal leading-tight"><!-- Handle --></span>
+                                    <span class="text-[10px] text-textMuted leading-none">Asturias, Spain</span>
+                                </div>
+                                <span class="ml-auto text-textMuted text-xs">•••</span>
+                            </div>
+                            
+                            <!-- Foto do Post -->
+                            <div class="relative bg-brandWhite aspect-square overflow-hidden instagram-img-container">
+                                <img id="js-ig-image" src="" alt="Foto Instagram" class="w-full h-full object-cover">
+                            </div>
+                            
+                            <!-- Ações -->
+                            <div class="flex gap-3 text-sm text-charcoal">
+                                <span class="cursor-pointer hover:text-brandBlue">❤️</span>
+                                <span class="cursor-pointer hover:text-brandBlue">💬</span>
+                                <span class="cursor-pointer hover:text-brandBlue">✈️</span>
+                                <span class="ml-auto cursor-pointer hover:text-brandBlue">🔖</span>
+                            </div>
+
+                            <!-- Likes e Legenda -->
+                            <div class="flex flex-col gap-1 text-[11px] text-textMuted leading-snug">
+                                <span id="js-ig-likes" class="font-bold text-charcoal"><!-- Curtidos --></span>
+                                <span>
+                                    <strong id="js-ig-caption-handle" class="mr-1 text-charcoal"><!-- Handle --></strong>
+                                    <span id="js-ig-caption-text"><!-- Legenda --></span>
+                                    <span id="js-ig-tags" class="text-brandBlue block mt-1"><!-- Tags --></span>
+                                </span>
+                                <span id="js-ig-date" class="text-[9px] text-textMuted uppercase tracking-wider mt-1"><!-- Data --></span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==========================================================================
+             RODAPÉ
+             ========================================================================== -->
+        <footer class="w-full text-center py-10 flex flex-col items-center gap-2 mt-4 border-t border-borderColor">
+            <span class="museum-footer-tagline">
+                Coleção de Arquitetura & Réplicas 3D
+            </span>
+            <span class="text-xs text-textMuted italic font-sans">
+                Modelado e impresso por Marcelo Lacerda & Aislan
+            </span>
+        </footer>
+
+    </main>
+
+    <!-- ==========================================================================
+         LIGHTBOX MODAL (JAPANDI LIGHTBOX OVERLAY)
+         ========================================================================== -->
+    <div id="js-lightbox" class="lightbox-overlay">
+        <!-- Botão de Fechar -->
+        <button id="js-lightbox-close" class="lightbox-close-button" aria-label="Fechar galeria">&times;</button>
+        
+        <!-- Botões de Navegação -->
+        <button id="js-lightbox-prev" class="lightbox-navigation lightbox-previous-button" aria-label="Foto anterior">&#10094;</button>
+        <button id="js-lightbox-next" class="lightbox-navigation lightbox-next-button" aria-label="Próxima foto">&#10095;</button>
+
+        <div class="lightbox-content-wrapper">
+            <div class="lightbox-card">
+                <img id="js-lightbox-img" class="lightbox-img-element" src="" alt="Imagem ampliada">
+                <div id="js-lightbox-caption" class="lightbox-caption-text">
+                    <!-- Legenda da imagem -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         CÓDIGO JAVASCRIPT (LÓGICA E RENDERIZAÇÃO)
+         ========================================================================== -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // 1. APLICAR CONFIGURAÇÕES NA PÁGINA DINAMICAMENTE
+            
+            // Slide 1: Hero / Capa
+            document.title = `${MONUMENT_CONFIG.hero.title} - Portfólio 3D`;
+            document.getElementById("js-hero-slide").style.backgroundImage = `url('${MONUMENT_CONFIG.hero.bgImage}')`;
+            document.getElementById("js-hero-badge").textContent = MONUMENT_CONFIG.hero.category;
+            document.getElementById("js-hero-serial").textContent = MONUMENT_CONFIG.hero.serialNumber;
+            document.getElementById("js-hero-title").textContent = MONUMENT_CONFIG.hero.title;
+            document.getElementById("js-hero-subtitle").textContent = MONUMENT_CONFIG.hero.subtitle;
+            document.getElementById("js-hero-location").textContent = `📍 ${MONUMENT_CONFIG.hero.locationText}`;
+            
+            // Slide 2: Sobre & Fatos Relevantes
+            document.getElementById("js-about-title").textContent = MONUMENT_CONFIG.about.title;
+            document.getElementById("js-about-text").textContent = MONUMENT_CONFIG.about.description;
+            document.getElementById("js-about-image").src = MONUMENT_CONFIG.about.image;
+            document.getElementById("js-about-image").alt = MONUMENT_CONFIG.about.title;
+
+            // Injetar Métricas
+            const metricsContainer = document.getElementById("js-metrics-container");
+            metricsContainer.innerHTML = "";
+            MONUMENT_CONFIG.about.metrics.forEach(metric => {
+                const row = document.createElement("div");
+                row.className = "metric-row";
+                row.innerHTML = `
+                    <div class="metric-number">${metric.number}</div>
+                    <div class="metric-label">${metric.label}</div>
+                `;
+                metricsContainer.appendChild(row);
+            });
+
+            // Slide 3: Marcos Históricos (Timeline)
+            const milestonesGrid = document.getElementById("js-milestones-grid");
+            milestonesGrid.innerHTML = "";
+            MONUMENT_CONFIG.milestones.forEach(m => {
+                const card = document.createElement("div");
+                card.className = "milestone-card";
+                card.innerHTML = `
+                    <div class="milestone-image-wrapper">
+                        <span class="milestone-badge">${m.num}</span>
+                        <img src="${m.image}" alt="${m.title}">
+                    </div>
+                    <h4 class="milestone-title">${m.title}</h4>
+                    <p class="milestone-text">${m.text}</p>
+                `;
+                milestonesGrid.appendChild(card);
+            });
+
+            // Slide 4: Galeria Assimétrica
+            const galleryGrid = document.getElementById("js-gallery-grid");
+            galleryGrid.innerHTML = ""; // Limpa carregamento
+
+            MONUMENT_CONFIG.gallery.forEach((item, index) => {
+                const card = document.createElement("div");
+                card.className = `gallery-card ${item.spansLarge ? 'gallery-card-large' : ''}`;
+                card.setAttribute("data-index", index);
+
+                card.innerHTML = `
+                    <div class="gallery-image-wrapper">
+                        <img src="${item.url}" alt="${item.caption}">
+                    </div>
+                    <div class="gallery-info">
+                        <div class="gallery-title">${item.caption}</div>
+                        <div class="gallery-category">${item.tag}</div>
+                    </div>
+                `;
+
+                // Clique para abrir o Lightbox
+                card.addEventListener("click", () => {
+                    openLightbox(index);
+                });
+
+                galleryGrid.appendChild(card);
+            });
+
+            // Slide 5: Google Maps
+            document.getElementById("js-map-iframe").src = MONUMENT_CONFIG.mapsIframeUrl;
+
+            // Post do Instagram Simulado
+            const igConfig = MONUMENT_CONFIG.instagramPost;
+            document.getElementById("js-ig-avatar").src = igConfig.authorAvatar;
+            document.getElementById("js-ig-handle").textContent = igConfig.authorHandle;
+            document.getElementById("js-ig-caption-handle").textContent = igConfig.authorHandle;
+            document.getElementById("js-ig-likes").textContent = igConfig.likesCount;
+            document.getElementById("js-ig-caption-text").textContent = igConfig.captionText;
+            document.getElementById("js-ig-tags").textContent = igConfig.tags;
+            document.getElementById("js-ig-date").textContent = igConfig.date;
+            
+            // Usa a foto física finalizada (geralmente a última) como imagem do post do Instagram
+            const physicalImg = MONUMENT_CONFIG.gallery.find(img => img.tag === 'Peça Física') || MONUMENT_CONFIG.gallery[MONUMENT_CONFIG.gallery.length - 1];
+            document.getElementById("js-ig-image").src = physicalImg.url;
+
+            // 6. LÓGICA DO LIGHTBOX INTERATIVO
+            const lightbox = document.getElementById("js-lightbox");
+            const lightboxImg = document.getElementById("js-lightbox-img");
+            const lightboxCaption = document.getElementById("js-lightbox-caption");
+            const btnClose = document.getElementById("js-lightbox-close");
+            const btnPrev = document.getElementById("js-lightbox-prev");
+            const btnNext = document.getElementById("js-lightbox-next");
+            
+            let activeIndex = 0;
+
+            function openLightbox(index) {
+                activeIndex = index;
+                updateLightboxContent();
+                lightbox.classList.add("active");
+                document.body.style.overflow = "hidden"; // Desativa scroll da página
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove("active");
+                document.body.style.overflow = ""; // Reativa scroll
+            }
+
+            function updateLightboxContent() {
+                const item = MONUMENT_CONFIG.gallery[activeIndex];
+                if (item) {
+                    lightboxImg.src = item.url;
+                    lightboxImg.alt = item.caption;
+                    lightboxCaption.textContent = item.caption;
+                }
+            }
+
+            function showNext() {
+                activeIndex = (activeIndex + 1) % MONUMENT_CONFIG.gallery.length;
+                updateLightboxContent();
+            }
+
+            // Eventos do Lightbox
+            btnClose.addEventListener("click", closeLightbox);
+            btnNext.addEventListener("click", showNext);
+            
+            // Retroceder imagem
+            btnPrev.addEventListener("click", () => {
+                activeIndex = (activeIndex - 1 + MONUMENT_CONFIG.gallery.length) % MONUMENT_CONFIG.gallery.length;
+                updateLightboxContent();
+            });
+
+            // Fechar ao clicar fora da imagem
+            lightbox.addEventListener("click", (e) => {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            // Atalhos do Teclado
+            document.addEventListener("keydown", (e) => {
+                if (!lightbox.classList.contains("active")) return;
+                
+                if (e.key === "Escape") {
+                    closeLightbox();
+                } else if (e.key === "ArrowRight") {
+                    showNext();
+                } else if (e.key === "ArrowLeft") {
+                    activeIndex = (activeIndex - 1 + MONUMENT_CONFIG.gallery.length) % MONUMENT_CONFIG.gallery.length;
+                    updateLightboxContent();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
