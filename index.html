@@ -124,15 +124,10 @@
             ],
 
             // Slide 5: Localização & Registro Social
-            mapsIframeUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2898.8153093223063!2d-5.028711423403264!3d43.3087363711209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd3617be3fffffff%3A0x67db2371997d515a!2sBas%C3%ADlica%20de%20Santa%20Mar%C3%ADa%20la%20Real%20de%20Covadonga!5e0!3m2!1spt-BR!2spt!4v1717270000000!5m2!1spt-BR!2spt",
-            instagramPost: {
-                authorHandle: "@mlacerdapt",
-                authorAvatar: "https://api.dicebear.com/7.x/identicon/svg?seed=mlacerdapt",
-                likesCount: "Curtido por @aislan_art e outras 184 pessoas",
-                captionText: "Depois de semanas modelando cada detalhe dos vitrais e torres neorromânicas, a Basílica de Covadonga finalmente ganhou forma física! O calcário rosa impresso em filamento especial de pedra. Apaixonado pelo resultado. 🏰✨",
-                tags: "#3DPrinting #Covadonga #Architecture #Miniature",
-                date: "15 DE JUNHO DE 2026"
-            }
+            mapsUrl: "https://maps.app.goo.gl/sthQeEGgWEZ3Kugz7",
+            mapsIframeUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2898.8105741872124!2d-5.056245323403259!3d43.30892027112086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd49dfc33b7ececf%3A0x81ead4104fc2a7fc!2sBas%C3%ADlica%20de%20Santa%20Mar%C3%ADa%20la%20Real%20de%20Covadonga!5e0!3m2!1spt-BR!2spt",
+            instagramUrl: "https://www.instagram.com/p/DVMTUDUjLzB/",
+            instagramEmbedUrl: "https://www.instagram.com/p/DVMTUDUjLzB/embed/captioned/"
         };
     </script>
 
@@ -231,64 +226,66 @@
                     
                     <!-- Mapa Embutido -->
                     <div class="md:col-span-3 flex flex-col justify-between">
-                        <div class="map-outer-container relative w-full h-80 overflow-hidden">
-                            <iframe 
-                                id="js-map-iframe"
-                                src="" 
-                                width="100%" 
-                                height="100%" 
-                                style="border:0;" 
-                                allowfullscreen="" 
-                                loading="lazy" 
-                                referrerpolicy="no-referrer-when-downgrade">
-                            </iframe>
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="font-title font-bold text-xs text-brandBlue uppercase tracking-widest flex items-center gap-1.5">
+                                    📍 Localização
+                                </h3>
+                                <a id="js-map-link" href="" target="_blank" rel="noopener noreferrer" class="text-xs font-title font-semibold text-brandBlue hover:text-brandMustard transition-colors flex items-center gap-1">
+                                    Abrir no Google Maps ↗
+                                </a>
+                            </div>
+                            <div class="map-outer-container relative w-full h-[520px] overflow-hidden">
+                                <iframe 
+                                    id="js-map-iframe"
+                                    src="" 
+                                    width="100%" 
+                                    height="100%" 
+                                    style="border:0;" 
+                                    allowfullscreen="" 
+                                    loading="lazy" 
+                                    referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                            </div>
                         </div>
                         <p class="font-sans italic text-xs text-center text-textMuted mt-4">
                             Coordenadas geográficas do monumento original em Astúrias, Espanha
                         </p>
                     </div>
 
-                    <!-- Lateral: Instagram Post Simulado -->
-                    <div class="md:col-span-2 flex flex-col">
-                        <h3 class="font-title font-bold text-xs text-brandBlue uppercase tracking-widest mb-3">
-                            📍 Origem do Projeto
-                        </h3>
-                        
-                        <!-- Card Instagram Simulado Japandi -->
-                        <div class="instagram-outer-card p-4 flex flex-col gap-3">
-                            <div class="flex items-center gap-3">
-                                <img id="js-ig-avatar" src="" alt="Avatar" class="w-8 h-8 rounded-full border border-borderColor">
-                                <div class="flex flex-col">
-                                    <span id="js-ig-handle" class="font-title font-bold text-xs text-charcoal leading-tight"><!-- Handle --></span>
-                                    <span class="text-[10px] text-textMuted leading-none">Asturias, Spain</span>
-                                </div>
-                                <span class="ml-auto text-textMuted text-xs">•••</span>
+                    <!-- Lateral: Publicação Real do Instagram -->
+                    <div class="md:col-span-2 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="font-title font-bold text-xs text-brandBlue uppercase tracking-widest flex items-center gap-1.5">
+                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                    </svg>
+                                    Instagram
+                                </h3>
+                                <a id="js-ig-link" href="" target="_blank" rel="noopener noreferrer" class="text-xs font-title font-semibold text-brandBlue hover:text-brandMustard transition-colors flex items-center gap-1">
+                                    Ver no Instagram ↗
+                                </a>
                             </div>
                             
-                            <!-- Foto do Post -->
-                            <div class="relative bg-brandWhite aspect-square overflow-hidden instagram-img-container">
-                                <img id="js-ig-image" src="" alt="Foto Instagram" class="w-full h-full object-cover">
-                            </div>
-                            
-                            <!-- Ações -->
-                            <div class="flex gap-3 text-sm text-charcoal">
-                                <span class="cursor-pointer hover:text-brandBlue">❤️</span>
-                                <span class="cursor-pointer hover:text-brandBlue">💬</span>
-                                <span class="cursor-pointer hover:text-brandBlue">✈️</span>
-                                <span class="ml-auto cursor-pointer hover:text-brandBlue">🔖</span>
-                            </div>
-
-                            <!-- Likes e Legenda -->
-                            <div class="flex flex-col gap-1 text-[11px] text-textMuted leading-snug">
-                                <span id="js-ig-likes" class="font-bold text-charcoal"><!-- Curtidos --></span>
-                                <span>
-                                    <strong id="js-ig-caption-handle" class="mr-1 text-charcoal"><!-- Handle --></strong>
-                                    <span id="js-ig-caption-text"><!-- Legenda --></span>
-                                    <span id="js-ig-tags" class="text-brandBlue block mt-1"><!-- Tags --></span>
-                                </span>
-                                <span id="js-ig-date" class="text-[9px] text-textMuted uppercase tracking-wider mt-1"><!-- Data --></span>
+                            <!-- Card Embed do Instagram -->
+                            <div class="instagram-outer-card overflow-hidden w-full h-[520px] bg-white">
+                                <iframe 
+                                    id="js-ig-iframe"
+                                    src="" 
+                                    width="100%" 
+                                    height="100%" 
+                                    style="border:0;" 
+                                    allowfullscreen="" 
+                                    scrolling="no" 
+                                    allowtransparency="true">
+                                </iframe>
                             </div>
                         </div>
+
+                        <p class="font-sans italic text-xs text-center text-textMuted mt-4">
+                            Publicação no Instagram sobre o monumento e expedição
+                        </p>
                     </div>
 
                 </div>
@@ -304,7 +301,7 @@
                 Coleção de Arquitetura & Réplicas 3D
             </span>
             <span class="text-xs text-textMuted italic font-sans">
-                Modelado e impresso por Marcelo Lacerda & Aislan
+                Modelado e impresso por Marcelo Lacerda & Aislan Silva
             </span>
         </footer>
 
@@ -410,22 +407,11 @@
                 galleryGrid.appendChild(card);
             });
 
-            // Slide 5: Google Maps
+            // Slide 5: Google Maps & Instagram
             document.getElementById("js-map-iframe").src = MONUMENT_CONFIG.mapsIframeUrl;
-
-            // Post do Instagram Simulado
-            const igConfig = MONUMENT_CONFIG.instagramPost;
-            document.getElementById("js-ig-avatar").src = igConfig.authorAvatar;
-            document.getElementById("js-ig-handle").textContent = igConfig.authorHandle;
-            document.getElementById("js-ig-caption-handle").textContent = igConfig.authorHandle;
-            document.getElementById("js-ig-likes").textContent = igConfig.likesCount;
-            document.getElementById("js-ig-caption-text").textContent = igConfig.captionText;
-            document.getElementById("js-ig-tags").textContent = igConfig.tags;
-            document.getElementById("js-ig-date").textContent = igConfig.date;
-            
-            // Usa a foto física finalizada (geralmente a última) como imagem do post do Instagram
-            const physicalImg = MONUMENT_CONFIG.gallery.find(img => img.tag === 'Peça Física') || MONUMENT_CONFIG.gallery[MONUMENT_CONFIG.gallery.length - 1];
-            document.getElementById("js-ig-image").src = physicalImg.url;
+            document.getElementById("js-map-link").href = MONUMENT_CONFIG.mapsUrl;
+            document.getElementById("js-ig-iframe").src = MONUMENT_CONFIG.instagramEmbedUrl;
+            document.getElementById("js-ig-link").href = MONUMENT_CONFIG.instagramUrl;
 
             // 6. LÓGICA DO LIGHTBOX INTERATIVO
             const lightbox = document.getElementById("js-lightbox");
